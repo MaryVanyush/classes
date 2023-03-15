@@ -18,13 +18,14 @@ export default class Character {
       { type: 'Zombie', attack: 40, defence: 10 },
     ];
 
-    heroes.find((el) => {
-      if (el.type === type) {
+    for (const hero of heroes) {
+      if (hero.type === type) {
         this.type = type;
-        this.attack = el.attack;
-        this.defence = el.defence;
+        this.attack = hero.attack;
+        this.defence = hero.defence;
       }
-    });
+    }
+
     if (!this.type) {
       throw new Error('error type');
     }
